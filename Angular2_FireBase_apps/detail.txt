@@ -1,0 +1,71 @@
+# app.component.html
+<ul *ngFor="let item of items | async">
+	<li>{{item.name}}</li>
+</ul>
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+# app.component.ts
+import { Component } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app works!';
+
+  items: FirebaseListObservable<any[]>;
+  constructor(af: AngularFire) {
+    this.items = af.database.list('/items');
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+# app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
+
+import { AppComponent } from './app.component';
+
+// Must export the config
+export const firebaseConfig = {
+  apiKey: 'AIzaSyA5x-tG9eDE2WBZfUjjHKN4KKxXb57uqw0',
+  authDomain: 'businesscontacts-7fdd0.firebaseapp.com',
+  databaseURL: 'https://businesscontacts-7fdd0.firebaseio.com',
+  storageBucket: 'businesscontacts-7fdd0.appspot.com',
+  messagingSenderId: '1000931417326'
+};
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule, 
+    AngularFireModule.initializeApp(firebaseConfig)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+# typings.d.ts
+/* SystemJS module definition */
+/// <reference path="../node_modules/firebase/firebase.d.ts" />
+declare var module: NodeModule;
+interface NodeModule {
+  id: string;
+}
