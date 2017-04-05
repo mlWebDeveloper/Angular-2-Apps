@@ -36,39 +36,12 @@ export class FirebaseService {
   addBusiness(newBusiness) {
     return this.businesses.push(newBusiness);
   } 
-  /*
+
   updateBusiness(key, updBusiness) {
     return this.businesses.update(key, updBusiness);
   }
 
   deleteBusiness(key) {
     return this.businesses.remove(key);
-  }*/
-}
-
-// changes: line 16 * add to category : string = null
-/*
- * New:  
- * if (category != null) {
-      this.businesses = this._af.database.list('/businesses', {
-        query: {
-          orderByChild: 'category',
-          equalTo: category
-        }
-      }) as FirebaseListObservable < Business[] >
-    } else {
-      this.businesses = this._af.database.list('/businesses') as
-      FirebaseListObservable < Business[] >
-    }
-    return this.businesses;
   }
-*/
-
-/*
- * Old:  (gives an error without parameter)
- * getBusinesses(category){
-    this.businesses = this._af.database.list('/businesses') as
-      FirebaseListObservable < Business[] >
-      return this.businesses;
- }
-*/
+}
