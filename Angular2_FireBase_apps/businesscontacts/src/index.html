@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Businesscontacts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css">
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,5 +11,21 @@
 </head>
 <body>
   <app-root>Loading...</app-root>
+  <script src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA5x-tG9eDE2WBZfUjjHKN4KKxXb57uqw0",
+      authDomain: "businesscontacts-7fdd0.firebaseapp.com",
+      databaseURL: "https://businesscontacts-7fdd0.firebaseio.com",
+      storageBucket: "businesscontacts-7fdd0.appspot.com",
+      messagingSenderId: "1000931417326"
+    };
+    firebase.initializeApp(config);
+  </script>
 </body>
 </html>
